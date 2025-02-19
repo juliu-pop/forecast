@@ -24,7 +24,7 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build WeatherForecast.sln --configuration Release
 
       - name: dotnet publish
         run: dotnet publish WeatherForecast.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
