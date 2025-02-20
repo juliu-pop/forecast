@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApiTest;
+namespace WeatherForecastAPI;
 
 [Route("api/weather/")]
 [Produces("application/json")]

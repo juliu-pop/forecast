@@ -1,14 +1,35 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.AspNetCore.OpenApi;
 
-builder.Services.AddControllers();
-// Add services to the container.
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+        builder.Services.AddControllers();
 
-// Configure the HTTP request pipeline.
+        builder.Services.AddOpenApi(options =>
+                {
+                    options.AddDocumentTransformer((document, _, _) =>
+                    {
+                        document.Info.Title = "Weather API";
+                        document.Info.Description = "An API for weather forecast.";
+                        document.Info.Version = "v1";
 
-app.UseHttpsRedirection();
+                        return Task.CompletedTask;
+                    });
+                });
 
-app.MapControllers();
+        var app = builder.Build();
 
-app.Run();
+        // Configure the HTTP request pipeline.
+
+        app.UseHttpsRedirection();
+
+        app.MapControllers();
+
+        app.MapOpenApi();
+
+        app.Run();
+    }
+}
