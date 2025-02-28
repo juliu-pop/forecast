@@ -4,14 +4,14 @@
     "parameters": {
       "siteName": {
         "type": "string",
-		"name": "iuliuswebsite06071982",
+		"defaultValue": "iuliuswebsite06071982",
         "metadata": {
           "description": "The name of the web app that you wish to create."
         }
       },
       "hostingPlanName": {
         "type": "string",
-		"name": "ASP-WebAppResourceGroup-9b7a",
+		"defaultValue": "ASP-WebAppResourceGroup-9b7a",
         "metadata": {
           "description": "The name of the App Service plan to use for hosting the web app."
         }
